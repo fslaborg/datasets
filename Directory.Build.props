@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Authors>Kevin Schneider, fslaborg</Authors>
+    <Description>A data source for example datasets for all kinds of data science</Description>
+    <Summary>A data source for example datasets for all kinds of data science</Summary>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://fslab.org/datasets/</PackageProjectUrl>
+    <PackageIconUrl>https://fslab.org/datasets/img/logo.png</PackageIconUrl>
+    <PackageTags>data fsharp csharp dotnet</PackageTags>
+    <RepositoryUrl>https://github.com/fslaborg/datasets</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <FsDocsLicenseLink>https://github.com/fslaborg/datasets/blob/master/LICENSE</FsDocsLicenseLink>
+    <FsDocsReleaseNotesLink>https://github.com/fslaborg/datasets/blob/master/RELEASE_NOTES.md</FsDocsReleaseNotesLink>
+  </PropertyGroup>
+
+</Project>
