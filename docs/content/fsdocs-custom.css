@@ -9007,7 +9007,7 @@ strong {
   border-bottom: 2px solid #A00975; }
 
 em {
-  color: #A00975; }
+  color: #6A9955; }
 
 #fsdocs-content ul {
   -webkit-padding-start: 40px;
@@ -9033,10 +9033,15 @@ em {
   border-left: 4px solid #A00975; }
 
 #fsdocs-content table.pre, #fsdocs-content pre.fssnip, #fsdocs-content pre {
-  background-color: #200117;
-  color: #fafafa;
+  background-color: #200117 !important;
+  color: #fafafa !important;
   overflow-x: auto;
-  display: block; }
+  display: block;
+  font-weight: initial; }
+
+#fsdocs-content pre.fssnip code {
+  font: 0.85rem 'Roboto Mono', monospace;
+  font-weight: initial; }
 
 #fsdocs-menu::-webkit-scrollbar {
   width: 1px; }
@@ -9197,4 +9202,4 @@ div.fsdocs-tip code {
   color: #d1d1d1;
   font: 11pt 'Droid Sans', arial, sans-serif; }
 
-/*# sourceMappingURL=C:\Users\Kevin\source\repos\fslaborg\docs-template\Content\docs\content\fsdocs-custom.css.map */
+/*# sourceMappingURL=C:\Users\schne\source\repos\fslaborg\docs-template\Content\docs\content\fsdocs-custom.css.map */

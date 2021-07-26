@@ -14,7 +14,7 @@ For using the data contained in this repository, we recommend using `FSharp.Data
 open FSharp.Data
 open Deedle
 
-let rawData = Http.RequestString ""
+let rawData = Http.RequestString @"https://raw.githubusercontent.com/fslaborg/datasets/main/data/iris.csv"
 let df = Frame.ReadCsvString(rawData) //exact settings may differ here depending on e.g. the separator used in the individual dataset
 
 df.Print()
