@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Housefly wing length</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="">
+    <link rel="shortcut icon" type="image/x-icon" href="/datasets//img/favicon.ico">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script> -->
+
+    <link type="text/css" rel="stylesheet" href="/datasets/content/fsdocs-default.css" />
+    <link type="text/css" rel="stylesheet" href="/datasets/content/fsdocs-custom.css" />
+    <script type="text/javascript" src="/datasets/content/fsdocs-tips.js"></script>
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- BEGIN SEARCH BOX: this adds support for the search box -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/JavaScript-autoComplete/1.0.4/auto-complete.css" />
+    <!-- END SEARCH BOX: this adds support for the search box -->
+    
+</head> 
+
+<body>
+    <div class="columns is-fullheight m-0">
+        <div id="fsdocs-menu" class="column is-2 is-paddingless">
+            <aside class="menu">
+                <div class="container is-paddingless is-marginless has-background-dark">
+                    <a href="/datasets/">
+                        <figure class="image is-128x128 container">
+                            <img src="/datasets/img/logo.png">
+                        </figure>
+                    </a>
+                    <h2 class="title has-text-centered has-text-white pb-4">datasets</h2>
+                </div>
+                <div class="content">
+                    <!-- BEGIN SEARCH BOX: this adds support for the search box -->
+                    <div id="header">
+                        <div class="field">
+                            <div class="control has-icons-left has-icons-right searchbox" id="fsdocs-searchbox">
+                                <input data-search-input="" id="search-by" type="search" placeholder="Search..." class="input"/>
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-search"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END SEARCH BOX: this adds support for the search box -->
+                    <ul class="navbar-nav">
+                        <li class="nav-header">Links</li>
+                        <li class="nav-item" id="fsdocs-license-link"><a class="nav-link" href="{{fsdocs-license-link}}">License (MIT)</a></li>
+                        <li class="nav-item" id="fsdocs-release-notes-link"><a class="nav-link" href="{{fsdocs-release-notes-link}}">Release Notes</a></li>
+                        <li class="nav-item" id="fsdocs-repository-link"><a class="nav-link" href="{{fsdocs-repository-link}}">Source Repository</a></li>
+                        <li class="nav-header">
+  Datasets
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/datasets/01_iris.html">
+    Iris
+  </a>
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/datasets/02_ConcussionsInMaleAndFemaleCollegeAthletes.html">
+    Concussions in male and female college athletes
+  </a>
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/datasets/03_CaffeineAndEndurance.html">
+    Caffeine and endurance
+  </a>
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/datasets/04_HouseflyWingLength.html">
+    Housefly wing length
+  </a>
+</li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+        <div class="column is-10 is-paddingless">
+            <div class="section pt-4">
+                <div class="container" id="fsdocs-content">
+                    
+<p><a href="https://mybinder.org/v2/gh/plotly/Plotly.NET/gh-pages?filepath=04_HouseflyWingLength.ipynb"><img src="/datasets/img/badge-binder.svg" alt="Binder" /></a>&emsp;
+<a href="/datasets/04_HouseflyWingLength.fsx"><img src="/datasets/img/badge-script.svg" alt="Script" /></a>&emsp;
+<a href="/datasets/04_HouseflyWingLength.ipynb"><img src="/datasets/img/badge-notebook.svg" alt="Notebook" /></a></p>
+<h1><a name="The-housefly-wing-length-dataset" class="anchor" href="#The-housefly-wing-length-dataset">The <em>housefly wing length</em> dataset</a></h1>
+<p><strong>Table of contents</strong></p>
+<ul>
+<li><a href="">Description</a></li>
+<li><a href="">How to use</a></li>
+<li><a href="">Examples</a></li>
+</ul>
+<h2><a name="Description" class="anchor" href="#Description">Description</a></h2>
+<p>Measured wing lengths of 100 houseflies in mm * 10^1.
+Taken from <a href="https://seattlecentral.edu/qelp/sets/057/057.html">https://seattlecentral.edu/qelp/sets/057/057.html</a></p>
+<p>Original literature: Sokal, R.R. and P.E. Hunter. 1955. <em>A morphometric analysis of DDT-resistant and non-resistant housefly strains</em> Ann. Entomol. Soc. Amer. 48: 499-507.</p>
+<h2><a name="How-to-use" class="anchor" href="#How-to-use">How to use</a></h2>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="pp">#r</span> <span class="s">&quot;nuget: FSharp.Data&quot;</span>
+<span class="pp">#r</span> <span class="s">&quot;nuget: Deedle&quot;</span>
+
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="id">FSharp</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs2', 2)" onmouseover="showTip(event, 'fs2', 2)" class="id">Data</span>
+<span class="k">open</span> <span class="id">Deedle</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs3', 3)" onmouseover="showTip(event, 'fs3', 3)" class="id">rawData</span> <span class="o">=</span> <span class="id">Http</span><span class="pn">.</span><span class="id">RequestString</span> <span class="s">@&quot;https://raw.githubusercontent.com/fslaborg/datasets/main/data/HouseflyWingLength.txt&quot;</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs4', 4)" onmouseover="showTip(event, 'fs4', 4)" class="id">dataFrame</span> <span class="o">=</span> <span class="id">Frame</span><span class="pn">.</span><span class="id">ReadCsvString</span><span class="pn">(</span><span onmouseout="hideTip(event, 'fs3', 5)" onmouseover="showTip(event, 'fs3', 5)" class="id">rawData</span><span class="pn">,</span> <span class="id">hasHeaders</span> <span class="o">=</span> <span class="k">false</span><span class="pn">,</span> <span class="id">schema</span> <span class="o">=</span> <span class="s">&quot;wing length (mm * 10^1)&quot;</span><span class="pn">)</span>
+
+<span onmouseout="hideTip(event, 'fs4', 6)" onmouseover="showTip(event, 'fs4', 6)" class="id">dataFrame</span><span class="pn">.</span><span class="id">Print</span><span class="pn">(</span><span class="pn">)</span>
+</code></pre>
+<table class="pre"><tr><td><pre><code>wing length (mm * 10^1) 
+0  -&gt; 36                      
+1  -&gt; 37                      
+2  -&gt; 38                      
+3  -&gt; 38                      
+4  -&gt; 39                      
+5  -&gt; 39                      
+6  -&gt; 40                      
+7  -&gt; 40                      
+8  -&gt; 40                      
+9  -&gt; 40                      
+10 -&gt; 41                      
+11 -&gt; 41                      
+12 -&gt; 41                      
+13 -&gt; 41                      
+14 -&gt; 41                      
+:     ...                     
+85 -&gt; 50                      
+86 -&gt; 50                      
+87 -&gt; 50                      
+88 -&gt; 50                      
+89 -&gt; 50                      
+90 -&gt; 51                      
+91 -&gt; 51                      
+92 -&gt; 51                      
+93 -&gt; 51                      
+94 -&gt; 52                      
+95 -&gt; 52                      
+96 -&gt; 53                      
+97 -&gt; 53                      
+98 -&gt; 54                      
+99 -&gt; 55</code></pre></td></tr></table>
+<h2><a name="Examples" class="anchor" href="#Examples">Examples</a></h2>
+<p>This example is taken from the FsLab datascience tutorial <a href="">t-test</a>
+(WIP)</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="pp">#r</span> <span class="s">&quot;nuget: FSharp.Stats, 0.4.2&quot;</span>
+<span class="pp">#r</span> <span class="s">&quot;nuget: Plotly.NET, 2.0.0-preview6&quot;</span>
+
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs1', 7)" onmouseover="showTip(event, 'fs1', 7)" class="id">FSharp</span><span class="pn">.</span><span class="id">Stats</span>
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs1', 8)" onmouseover="showTip(event, 'fs1', 8)" class="id">FSharp</span><span class="pn">.</span><span class="id">Stats</span><span class="pn">.</span><span class="id">Testing</span>
+<span class="k">open</span> <span class="id">Plotly</span><span class="pn">.</span><span class="id">NET</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs5', 9)" onmouseover="showTip(event, 'fs5', 9)" class="id">boxPlot</span> <span class="o">=</span> 
+    <span class="id">Chart</span><span class="pn">.</span><span class="id">BoxPlot</span><span class="pn">(</span><span class="id">y</span> <span class="o">=</span> <span class="id">dataHousefly</span><span class="pn">,</span> <span class="id">Name</span> <span class="o">=</span> <span class="s">&quot;housefly&quot;</span><span class="pn">,</span> <span class="id">Boxpoints</span> <span class="o">=</span> <span class="id">StyleParam</span><span class="pn">.</span><span class="id">Boxpoints</span><span class="pn">.</span><span class="id">All</span><span class="pn">,</span> <span class="id">Jitter</span> <span class="o">=</span> <span class="n">0.2</span><span class="pn">)</span>
+    <span class="o">|&gt;</span> <span class="id">Chart</span><span class="pn">.</span><span class="id">withY_AxisStyle</span> <span class="s">&quot;wing length [mm]&quot;</span>
+</code></pre>
+<table class="pre"><tr><td><pre><code>No value returned by any evaluator</code></pre></td></tr></table>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="c">// The testing module in FSharp.Stats require vectors as input types, thus we transform our array into a vector:</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs6', 11)" onmouseover="showTip(event, 'fs6', 11)" class="id">vectorDataHousefly</span> <span class="o">=</span> <span class="id">vector</span> <span class="id">dataHousefly</span>
+
+<span class="c">// The expected value of our population.</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs7', 12)" onmouseover="showTip(event, 'fs7', 12)" class="id">expectedValue</span> <span class="o">=</span> <span class="n">45.</span>
+
+<span class="c">// Perform the one-sample t-test with our vectorized data and our exptected value as parameters.</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs8', 13)" onmouseover="showTip(event, 'fs8', 13)" class="id">oneSampleResult</span> <span class="o">=</span> <span class="id">TTest</span><span class="pn">.</span><span class="id">oneSample</span> <span onmouseout="hideTip(event, 'fs6', 14)" onmouseover="showTip(event, 'fs6', 14)" class="id">vectorDataHousefly</span> <span onmouseout="hideTip(event, 'fs7', 15)" onmouseover="showTip(event, 'fs7', 15)" class="id">expectedValue</span>
+</code></pre>
+<table class="pre"><tr><td><pre><code>No value returned by any evaluator</code></pre></td></tr></table>
+
+                </div>
+            </div>
+        </div>
+        <div class="fsdocs-tip" id="fs1">namespace Microsoft.FSharp</div>
+<div class="fsdocs-tip" id="fs2">namespace Microsoft.FSharp.Data</div>
+<div class="fsdocs-tip" id="fs3">val rawData : obj</div>
+<div class="fsdocs-tip" id="fs4">val dataFrame : obj</div>
+<div class="fsdocs-tip" id="fs5">val boxPlot : obj</div>
+<div class="fsdocs-tip" id="fs6">val vectorDataHousefly : obj</div>
+<div class="fsdocs-tip" id="fs7">val expectedValue : float</div>
+<div class="fsdocs-tip" id="fs8">val oneSampleResult : obj</div>
+
+    </div>
+
+    <!-- BEGIN SEARCH BOX: this adds support for the search box -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/JavaScript-autoComplete/1.0.4/auto-complete.css" />
+    <script type="text/javascript">var fsdocs_search_baseurl = '/datasets/'</script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.8/lunr.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/JavaScript-autoComplete/1.0.4/auto-complete.min.js"></script>
+    <script type="text/javascript" src="/datasets/content/fsdocs-search.js"></script>
+    <!-- END SEARCH BOX: this adds support for the search box -->
+</body>
+
+</html>
