@@ -1,0 +1,15 @@
+Dataset:  concussion.dat
+
+Source:  T. Covassin, C.B. Swanik, M.L. Sachs (2003). "Sex Differences
+and the Incidence of Concussions Among Collegiate Athletes", Journal
+of Athletic Training, Vol. (38)3, pp238-244
+
+Description:  Counts of Concussions among collegiate athletes in
+5 sports for 3 years by gender.
+
+Variables/Columns
+Gender  1-7
+Sport    9-27  
+Academic Year   31-34
+Concussion id   42  /* 0=No, 1=Yes   */
+Count   46-50
