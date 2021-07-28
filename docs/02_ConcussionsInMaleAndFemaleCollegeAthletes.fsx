@@ -10,7 +10,7 @@ index: 2
 [![Script]({{root}}img/badge-script.svg)]({{root}}{{fsdocs-source-basename}}.fsx)&emsp;
 [![Notebook]({{root}}img/badge-notebook.svg)]({{root}}{{fsdocs-source-basename}}.ipynb)
 
-# The _Concussions in male and female college athletes_ dataset
+# The _concussions in male and female college athletes_ dataset
 
 **Table of contents**
 
@@ -64,3 +64,49 @@ This example is taken from the FsLab datascience tutorial [t-test]()
 (WIP)
 
 *)
+
+#r "nuget: FSharp.Stats, 0.4.2"
+#r "nuget: Plotly.NET, 2.0.0-preview6"
+
+open FSharp.Stats
+open FSharp.Stats.Testing
+open Plotly.NET
+
+// We need to filter out the columns and rows we don't need. Thus, we filter out the rows where the athletes suffered no concussions as well as filter out the columns without the number of concussions.
+let dataAthletesFemale, dataAthletesMale =
+    let getAthleteGenderData gender =
+        let dataAthletesOnlyConcussion =
+            dataAthletesAsFrame
+            |> Frame.filterRows (fun r objS -> objS.GetAs "Concussion")
+        let dataAthletesGenderFrame =
+            dataAthletesOnlyConcussion
+            |> Frame.filterRows (fun r objS -> objS.GetAs "Gender" = gender)
+        dataAthletesGenderFrame
+        |> Frame.getCol "Count" 
+        |> Series.values
+        |> vector
+    getAthleteGenderData "Female", getAthleteGenderData "Male"
+
+let boxPlot = 
+    [
+        Chart.BoxPlot(y = dataAthletesFemale, Name = "female college athletes", Boxpoints = StyleParam.Boxpoints.All, Jitter = 0.2)
+        Chart.BoxPlot(y = dataAthletesMale, Name = "male college athletes", Boxpoints = StyleParam.Boxpoints.All, Jitter = 0.2)
+    ]
+    |> Chart.Combine
+    |> Chart.withY_AxisStyle "number of concussions over 3 years"
+
+(*** condition: ipynb ***)
+#if IPYNB
+boxPlot
+#endif // IPYNB
+
+(***hide***)
+boxPlot |> GenericChart.toChartHTML
+(***include-it-raw***)
+
+open FSharp.Stats.Testing
+
+// We test both samples against each other, assuming equal variances.
+let twoSampleResult = TTest.twoSample true dataAthletesFemale dataAthletesMale
+
+(*** include-value:twoSampleResult ***)
