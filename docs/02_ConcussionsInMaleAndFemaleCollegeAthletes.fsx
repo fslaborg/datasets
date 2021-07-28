@@ -1,6 +1,6 @@
 (**
 ---
-title: Concussions in male and female college athletes
+title: Concussions in Male and Female College Athletes
 category: Datasets
 categoryindex: 1
 index: 2
@@ -10,7 +10,7 @@ index: 2
 [![Script]({{root}}img/badge-script.svg)]({{root}}{{fsdocs-source-basename}}.fsx)&emsp;
 [![Notebook]({{root}}img/badge-notebook.svg)]({{root}}{{fsdocs-source-basename}}.ipynb)
 
-# The _concussions in male and female college athletes_ dataset
+# The _Concussions in Male and Female College Athletes_ dataset
 
 **Table of contents**
 
@@ -20,10 +20,10 @@ index: 2
 
 ## Description
 
-Counts of Concussions among collegiate athletes in 5 sports for 3 years by gender.
-Taken from [Lawrence H. Winner, University of Florida](http://archived.stat.ufl.edu/personnel/usrpages/winner.shtml):
-- [Data](http://users.stat.ufl.edu/~winner/data/concussion.dat)
-- [Description](http://users.stat.ufl.edu/~winner/data/psycparole.txt)
+Counts of Concussions among collegiate athletes in 5 sports for 3 years by gender.  
+Taken from [Lawrence H. Winner, University of Florida](http://archived.stat.ufl.edu/personnel/usrpages/winner.shtml):  
+- [Data](http://users.stat.ufl.edu/~winner/data/concussion.dat)  
+- [Description](http://users.stat.ufl.edu/~winner/data/concussion.txt)
 
 Original literature: T. Covassin, C.B. Swanik, M.L. Sachs (2003). "Sex Differences and the Incidence of Concussions Among Collegiate Athletes", Journal of Athletic Training, Vol. (38)3, pp238-244
 

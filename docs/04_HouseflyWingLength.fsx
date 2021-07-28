@@ -1,6 +1,6 @@
 (**
 ---
-title: Housefly wing length
+title: Housefly Wing Length
 category: Datasets
 categoryindex: 1
 index: 4
@@ -10,7 +10,7 @@ index: 4
 [![Script]({{root}}img/badge-script.svg)]({{root}}{{fsdocs-source-basename}}.fsx)&emsp;
 [![Notebook]({{root}}img/badge-notebook.svg)]({{root}}{{fsdocs-source-basename}}.ipynb)
 
-# The _housefly wing length_ dataset
+# The _Housefly Wing Length_ dataset
 
 **Table of contents**
 
@@ -20,7 +20,7 @@ index: 4
 
 ## Description
 
-Measured wing lengths of 100 houseflies in mm * 10^1.
+Measured wing lengths of 100 houseflies in mm * 10^1.  
 Taken from https://seattlecentral.edu/qelp/sets/057/057.html
 
 Original literature: Sokal, R.R. and P.E. Hunter. 1955. "A morphometric analysis of DDT-resistant and non-resistant housefly strains" Ann. Entomol. Soc. Amer. 48: 499-507.

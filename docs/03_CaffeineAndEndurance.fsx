@@ -1,6 +1,6 @@
 (**
 ---
-title: Caffeine and endurance
+title: Caffeine and Endurance
 category: Datasets
 categoryindex: 1
 index: 3
@@ -10,7 +10,7 @@ index: 3
 [![Script]({{root}}img/badge-script.svg)]({{root}}{{fsdocs-source-basename}}.fsx)&emsp;
 [![Notebook]({{root}}img/badge-notebook.svg)]({{root}}{{fsdocs-source-basename}}.ipynb)
 
-# The _caffeine and endurance_ dataset
+# The _Caffeine and Endurance_ dataset
 
 **Table of contents**
 
@@ -20,9 +20,9 @@ index: 3
 
 ## Description
 
-Endurance times for 9 well-trained cyclists, on each of 4 doses of caffeine (0, 5, 9, 13 mg) with 1 line per subject.
+Endurance times for 9 well-trained cyclists, on each of 4 doses of caffeine (0, 5, 9, 13 mg) with 1 line per subject.  
 Taken from [Lawrence H. Winner, University of Florida](http://archived.stat.ufl.edu/personnel/usrpages/winner.shtml):  
-- [Data](http://users.stat.ufl.edu/~winner/data/caffeine1.dat)
+- [Data](http://users.stat.ufl.edu/~winner/data/caffeine1.dat)  
 - [Description](http://users.stat.ufl.edu/~winner/data/caffeine1.txt)
 
 Original literature: W.J. Pasman, M.A. van Baak, A.E. Jeukendrup, A. de Haan (1995). "The Effect of Different Dosages of Caffeine on Endurance Performance Time", International Journal of Sports Medicine, Vol. 16, pp225-230.
@@ -82,7 +82,7 @@ let dataCaffeineNoDose, dataCaffeine13mg =
         |> vector
     getVectorFromCol "no Dose", getVectorFromCol "13 mg"
 
-// 
+// Transforming our data into a chart.
 let visualizePairedData = 
     Seq.zip dataCaffeineNoDose dataCaffeine13mg
     |> Seq.mapi (fun i (control,treatment) -> 
