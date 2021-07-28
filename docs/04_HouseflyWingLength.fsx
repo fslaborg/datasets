@@ -23,7 +23,7 @@ index: 4
 Measured wing lengths of 100 houseflies in mm * 10^1.
 Taken from https://seattlecentral.edu/qelp/sets/057/057.html
 
-Original literature: Sokal, R.R. and P.E. Hunter. 1955. _A morphometric analysis of DDT-resistant and non-resistant housefly strains_ Ann. Entomol. Soc. Amer. 48: 499-507.
+Original literature: Sokal, R.R. and P.E. Hunter. 1955. "A morphometric analysis of DDT-resistant and non-resistant housefly strains" Ann. Entomol. Soc. Amer. 48: 499-507.
 
 
 ## How to use
@@ -38,9 +38,9 @@ open Deedle
 
 let rawData = Http.RequestString @"https://raw.githubusercontent.com/fslaborg/datasets/main/data/HouseflyWingLength.txt"
 
-let dataFrame = Frame.ReadCsvString(rawData, hasHeaders = false, schema = "wing length (mm * 10^1)")
+let df = Frame.ReadCsvString(rawData, hasHeaders = false, schema = "wing length (mm * 10^1)")
 
-dataFrame.Print()
+df.Print()
 
 (*** include-output ***)
 
@@ -54,14 +54,21 @@ This example is taken from the FsLab datascience tutorial [t-test]()
 *)
 
 #r "nuget: FSharp.Stats, 0.4.2"
-#r "nuget: Plotly.NET, 2.0.0-preview6"
+#r "nuget: Plotly.NET, 2.0.0-preview.6"
 
 open FSharp.Stats
 open FSharp.Stats.Testing
 open Plotly.NET
 
+let seqDataHousefly =
+    df
+    |> Frame.getCol "wing length (mm * 10^1)"
+    |> Series.values
+    // We convert the values to mm
+    |> Seq.map (fun x -> x / 10.)
+
 let boxPlot = 
-    Chart.BoxPlot(y = dataHousefly, Name = "housefly", Boxpoints = StyleParam.Boxpoints.All, Jitter = 0.2)
+    Chart.BoxPlot(y = seqDataHousefly, Name = "housefly", Boxpoints = StyleParam.Boxpoints.All, Jitter = 0.2)
     |> Chart.withY_AxisStyle "wing length [mm]"
 
 (*** condition: ipynb ***)
@@ -74,10 +81,10 @@ boxPlot |> GenericChart.toChartHTML
 (***include-it-raw***)
 
 // The testing module in FSharp.Stats require vectors as input types, thus we transform our array into a vector:
-let vectorDataHousefly = vector dataHousefly
+let vectorDataHousefly = vector seqDataHousefly
 
 // The expected value of our population.
-let expectedValue = 45.
+let expectedValue = 4.5
 
 // Perform the one-sample t-test with our vectorized data and our exptected value as parameters.
 let oneSampleResult = TTest.oneSample vectorDataHousefly expectedValue

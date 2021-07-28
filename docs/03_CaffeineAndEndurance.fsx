@@ -21,11 +21,11 @@ index: 3
 ## Description
 
 Endurance times for 9 well-trained cyclists, on each of 4 doses of caffeine (0, 5, 9, 13 mg) with 1 line per subject.
-Taken from [Lawrence H. Winner, University of Florida](http://archived.stat.ufl.edu/personnel/usrpages/winner.shtml):
+Taken from [Lawrence H. Winner, University of Florida](http://archived.stat.ufl.edu/personnel/usrpages/winner.shtml):  
 - [Data](http://users.stat.ufl.edu/~winner/data/caffeine1.dat)
 - [Description](http://users.stat.ufl.edu/~winner/data/caffeine1.txt)
 
-Original literature: W.J. Pasman, M.A. van Baak, A.E. Jeukendrup, A. de Haan (1995). _The Effect of Different Dosages of Caffeine on Endurance Performance Time_, International Journal of Sports Medicine, Vol. 16, pp225-230.
+Original literature: W.J. Pasman, M.A. van Baak, A.E. Jeukendrup, A. de Haan (1995). "The Effect of Different Dosages of Caffeine on Endurance Performance Time", International Journal of Sports Medicine, Vol. 16, pp225-230.
 
 
 ## How to use
@@ -46,14 +46,14 @@ let rawDataCaffeineAdapted =
     regexCaffeine
     |> List.fold (fun acc (reg,rep) -> reg.Replace(acc, rep)) rawDataCaffeine
 
-let dataFrame = Frame.ReadCsvString(rawDataAdapted, hasHeaders = false, separators = "\t", schema = "Subject ID, no Dose, 5 mg, 9 mg, 13 mg")
+let df = Frame.ReadCsvString(rawDataCaffeineAdapted, hasHeaders = false, separators = "\t", schema = "Subject ID, no Dose, 5 mg, 9 mg, 13 mg")
 
 // Otherwise, the following already adapted dataset can be used:
 let rawData2 = Http.RequestString @"https://raw.githubusercontent.com/fslaborg/datasets/main/data/CaffeineAndEndurance(wide)_adapted.tsv"
 
-let dataFrame2 = Frame.ReadCsvString(rawData2, hasHeaders = false, separators = "\t", schema = "Subject ID, no Dose, 5 mg, 9 mg, 13 mg")
+let df2 = Frame.ReadCsvString(rawData2, hasHeaders = false, separators = "\t", schema = "Subject ID, no Dose, 5 mg, 9 mg, 13 mg")
 
-dataFrame2.Print()
+df2.Print()
 
 (*** include-output ***)
 
@@ -67,7 +67,7 @@ This example is taken from the FsLab datascience tutorial [t-test]()
 *)
 
 #r "nuget: FSharp.Stats, 0.4.2"
-#r "nuget: Plotly.NET, 2.0.0-preview6"
+#r "nuget: Plotly.NET, 2.0.0-preview.6"
 
 open FSharp.Stats
 open FSharp.Stats.Testing
@@ -76,7 +76,7 @@ open Plotly.NET
 // We want to compare the subjects' performances under the influence of 13 mg caffeine and in the control situation.
 let dataCaffeineNoDose, dataCaffeine13mg =
     let getVectorFromCol col = 
-        dataCaffeineAsFrame
+        df2
         |> Frame.getCol col
         |> Series.values
         |> vector
@@ -86,7 +86,7 @@ let dataCaffeineNoDose, dataCaffeine13mg =
 let visualizePairedData = 
     Seq.zip dataCaffeineNoDose dataCaffeine13mg
     |> Seq.mapi (fun i (control,treatment) -> 
-        let participant = "Person " + string i 
+        let participant = "Person " + string (i + 1)
         Chart.Line(["no dose", control; "13 mg", treatment], Name = participant)
         )
     |> Chart.Combine
@@ -102,14 +102,6 @@ visualizePairedData
 (***hide***)
 visualizePairedData |> GenericChart.toChartHTML
 (***include-it-raw***)
-
-(**
-
-The function for pairwise t tests can be found at `FSharp.Stats.Testing.TTest.twoSamplePaired`. Note, that the order of the elements in each vector must be the same, so a pairwise comparison
-can be performed.
-
-
-*)
 
 let twoSamplePairedResult = TTest.twoSamplePaired dataCaffeineNoDose dataCaffeine13mg
 
