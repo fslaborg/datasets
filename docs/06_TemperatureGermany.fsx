@@ -3,7 +3,7 @@
 title: Temperature in Germany
 category: Datasets
 categoryindex: 1
-index: 5
+index: 6
 ---
 
 [![Binder]({{root}}img/badge-binder.svg)](https://mybinder.org/v2/gh/plotly/Plotly.NET/gh-pages?filepath={{fsdocs-source-basename}}.ipynb)&emsp;
