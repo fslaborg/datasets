@@ -81,6 +81,11 @@
   <a class="nav-link" href="/datasets/05_InSilicoGeneExpression.html">
     In silico gene expression
   </a>
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/datasets/06_TemperatureGermany.html">
+    Temperature in Germany
+  </a>
 </li>
                     </ul>
                 </div>
@@ -194,29 +199,29 @@ Taken from <a href="http://archived.stat.ufl.edu/personnel/usrpages/winner.shtml
     <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs40', 80)" onmouseover="showTip(event, 'fs40', 80)" class="rt">Chart</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs46', 81)" onmouseover="showTip(event, 'fs46', 81)" class="id">Combine</span>
     <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs40', 82)" onmouseover="showTip(event, 'fs40', 82)" class="rt">Chart</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs47', 83)" onmouseover="showTip(event, 'fs47', 83)" class="id">withY_AxisStyle</span> <span class="s">&quot;number of concussions over 3 years&quot;</span>
 </code></pre>
-<div id="60b29097-413b-4c35-a00b-a29f1f3492b5" style="width: 600px; height: 600px;"><!-- Plotly chart will be drawn inside this DIV --></div>
+<div id="6a3e9aed-5cd9-4fe0-941f-d314fc1cacda" style="width: 600px; height: 600px;"><!-- Plotly chart will be drawn inside this DIV --></div>
 <script type="text/javascript">
 
-            var renderPlotly_60b29097413b4c35a00ba29f1f3492b5 = function() {
+            var renderPlotly_6a3e9aed5cd94fe0941fd314fc1cacda = function() {
             var fsharpPlotlyRequire = requirejs.config({context:'fsharp-plotly',paths:{plotly:'https://cdn.plot.ly/plotly-latest.min'}}) || require;
             fsharpPlotlyRequire(['plotly'], function(Plotly) {
 
             var data = [{"type":"box","y":[51.0,47.0,60.0,12.0,7.0,7.0,16.0,30.0,26.0,9.0,10.0,28.0,1.0,0.0,0.0],"boxpoints":"all","jitter":0.2,"name":"female college athletes","marker":{}},{"type":"box","y":[34.0,27.0,40.0,19.0,15.0,17.0,8.0,21.0,20.0,22.0,6.0,25.0,0.0,0.0,0.0],"boxpoints":"all","jitter":0.2,"name":"male college athletes","marker":{}}];
             var layout = {"yaxis":{"title":"number of concussions over 3 years"}};
             var config = {};
-            Plotly.newPlot('60b29097-413b-4c35-a00b-a29f1f3492b5', data, layout, config);
+            Plotly.newPlot('6a3e9aed-5cd9-4fe0-941f-d314fc1cacda', data, layout, config);
 });
             };
             if ((typeof(requirejs) !==  typeof(Function)) || (typeof(requirejs.config) !== typeof(Function))) {
                 var script = document.createElement("script");
                 script.setAttribute("src", "https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js");
                 script.onload = function(){
-                    renderPlotly_60b29097413b4c35a00ba29f1f3492b5();
+                    renderPlotly_6a3e9aed5cd94fe0941fd314fc1cacda();
                 };
                 document.getElementsByTagName("head")[0].appendChild(script);
             }
             else {
-                renderPlotly_60b29097413b4c35a00ba29f1f3492b5();
+                renderPlotly_6a3e9aed5cd94fe0941fd314fc1cacda();
             }
 </script>
 
