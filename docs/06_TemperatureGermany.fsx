@@ -35,7 +35,7 @@ The official website from the ["Deutsche Wetterdienst"](https://www.dwd.de/DE/le
 
 // Get data from Deutscher Wetterdienst
 // Explanation for Abbreviations: https://www.dwd.de/DE/leistungen/klimadatendeutschland/beschreibung_tagesmonatswerte.html
-let rawData = FSharp.Data.Http.RequestString @"https://www.dwd.de/DE/leistungen/_config/leistungsteckbriefPublication.txt?view=nasPublication&nn=16102&imageFilePath=8524108716561010473591414984380285860348440627905136707616031491601294722759953476578874542442119146105183517945099480938740343906988335742522410754862714750285564712567437754031667430876229001517155807795323254373913159234471816274144126039683579197&download=true"
+let rawData = FSharp.Data.Http.RequestString @"https://raw.githubusercontent.com/fslaborg/datasets/main/data/WeatherDataAachen-Orsbach_daily_1year.txt"
 
 open System
 open System.Text.RegularExpressions
