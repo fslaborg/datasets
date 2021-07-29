@@ -1,0 +1,2 @@
+This dataset is semi randomly generated. It emulates the expression of 100 genes over 3 conditions, with 3 replicates each. 
+7% of the values are dropped, as the dataset was originally made to showcase missing value imputation.
