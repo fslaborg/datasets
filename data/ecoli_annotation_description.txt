@@ -1,0 +1,9 @@
+Proteome annotation of Escherichia coli (strain K12).
+
+Information taken from https://www.uniprot.org/proteomes/UP000000625
+Last modified	March 7, 2021
+
+"The complete genome sequence of Escherichia coli K-12."
+Blattner F.R., Plunkett G. III, Bloch C.A., Perna N.T., Burland V., Riley M., Collado-Vides J., Glasner J.D., Rode C.K., Mayhew G.F., Gregor J., Davis N.W., Kirkpatrick H.A., Goeden M.A., Rose D.J., Mau B., Shao Y.
+Science 277:1453-1462(1997)
+
